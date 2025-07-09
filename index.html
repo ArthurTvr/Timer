@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Nosso Amor</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #fff0f5;
+            color: #8b0000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        #contador {
+            font-size: 1.8rem;
+            margin-top: 20px;
+            background-color: #7b024b1c;
+            border-radius: 50px;
+            padding: 10px;
+            box-shadow: 2px 3px #5001303e;
+        }
+
+        .emoji {
+            font-size: 2rem;
+        }
+
+        #text {
+
+            text-align: justify;
+            font-size: 1.3rem;
+        }
+
+        #text1 {
+            text-align: center;
+            font-size: 1.3rem;
+        }
+
+        .container {
+            margin-top: 50px;
+            width: 50%;
+            display: flex;
+            border: 1px dashed purple;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>💑 Estamos juntos há...</h1>
+    <div id="contador"></div>
+    <div class="container">
+        <div id="text">Desde então tive certeza que era com você que ia viver pro resto da minha vida. Muito obrigado
+            por
+            estar comigo. Você sem dúvidas é a minha melhor escolha da vida.</div>
+        <div id="text1">Eu te amo até a eternidade!🩷 </div>
+    </div>
+
+    <script>
+        const dataInicio = new Date('2023-07-31T22:14:00');
+
+        function atualizarContador() {
+            const agora = new Date();
+            let diff = agora - dataInicio;
+
+            const segundos = Math.floor(diff / 1000) % 60;
+            const minutos = Math.floor(diff / 1000 / 60) % 60;
+            const horas = Math.floor(diff / 1000 / 60 / 60) % 24;
+
+            const diasTotais = Math.floor(diff / 1000 / 60 / 60 / 24);
+
+            // Calcular anos, meses e dias de forma mais precisa
+            const inicio = new Date(dataInicio);
+            let anos = agora.getFullYear() - inicio.getFullYear();
+            let meses = agora.getMonth() - inicio.getMonth();
+            let dias = agora.getDate() - inicio.getDate();
+
+            if (dias < 0) {
+                meses -= 1;
+                dias += new Date(agora.getFullYear(), agora.getMonth(), 0).getDate();
+            }
+
+            if (meses < 0) {
+                anos -= 1;
+                meses += 12;
+            }
+
+            document.getElementById("contador").innerHTML =
+                `${anos} ano(s), ${meses} mês(es), ${dias} dia(s),<br>` +
+                `${horas} hora(s), ${minutos} minuto(s), ${segundos} segundo(s) 💖`;
+        }
+
+        setInterval(atualizarContador, 1000);
+        atualizarContador();
+    </script>
+</body>
+
+</html>
