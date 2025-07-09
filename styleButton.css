@@ -1,0 +1,44 @@
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #f5bfe5;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    button {
+        font-family: "Oswald", sans-serif;
+        font-size: 1.5rem;
+        padding: 15px 30px;
+        background-color: #bf80fe;
+        color: white;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        animation: pulso 2s infinite;
+    }
+
+    button:hover {
+        background-color: #af66f8;
+    }
+
+
+    @keyframes pulso {
+        0% {
+            background-color: #bf80fe;
+        }
+
+        50% {
+            background-color: #af66f8;
+        }
+
+        100%{
+            background-color: #bf80fe;
+        }
+
+    }
